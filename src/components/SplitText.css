@@ -1,0 +1,25 @@
+.split-text {
+  display: inline-block;
+}
+
+.split-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.split-unit {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity, filter;
+}
+
+.split-reader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
