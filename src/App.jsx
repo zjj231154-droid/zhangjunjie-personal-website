@@ -21,6 +21,13 @@ import VariableTitle from "./components/VariableTitle.jsx";
 import Waves from "./components/Waves.jsx";
 
 const contactEmail = "3146715274@qq.com";
+const assetUrl = (path) => {
+  if (!path) return path;
+  const value = String(path);
+  if (/^(https?:|data:|blob:|mailto:|#)/.test(value)) return value;
+
+  return `${import.meta.env.BASE_URL}${value.replace(/^\/+/, "")}`;
+};
 
 const metrics = [
   { value: "40%+", label: "AI 自动化与 SOP 带来的流转效率提升" },
@@ -123,7 +130,7 @@ const buildMasonryItems = (activeIndex) => {
 
   return images.map((image, index) => ({
     id: `${activeCard.id}-${index}`,
-    img: image,
+    img: assetUrl(image),
     url: "#projects",
     height: heights[index % heights.length],
     label: `${activeCard.title} ${String(index + 1).padStart(2, "0")}`,
@@ -198,7 +205,7 @@ const buildMiniMasonryItems = (activeIndex) => {
 
   return activeCard.images.map((image, index) => ({
     id: `${activeCard.id}-${index}`,
-    img: image,
+    img: assetUrl(image),
     url: "#project-miniapp",
     height: heights[index % heights.length],
     label: `${activeCard.title} ${String(index + 1).padStart(2, "0")}`,
@@ -261,7 +268,7 @@ const buildBrandMasonryItems = (activeIndex) => {
 
   return activeCard.images.map((image, index) => ({
     id: `${activeCard.id}-${index}`,
-    img: image,
+    img: assetUrl(image),
     url: "#project-brand",
     type: image.endsWith(".mp4") ? "video" : "image",
     height: heights[index % heights.length],
@@ -316,7 +323,7 @@ function Hero() {
   return (
     <section className="hero section-screen" id="top">
       <div className="hero-video" aria-hidden="true">
-        <video autoPlay muted loop playsInline poster="/assets/project-walulu-sop.webp">
+        <video autoPlay muted loop playsInline poster={assetUrl("/assets/project-walulu-sop.webp")}>
           <source
             src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4"
             type="video/mp4"
@@ -334,7 +341,7 @@ function Hero() {
       <div className="hero-inner page-shell">
         <div className="hero-visual" aria-label="张俊杰个人照片">
           <div className="photo-stage">
-            <img src="/assets/zjj-cutout.webp" alt="张俊杰" />
+            <img src={assetUrl("/assets/zjj-cutout.webp")} alt="张俊杰" />
           </div>
           <div className="hero-mini-card">
             <Sparkles size={18} />
@@ -396,7 +403,7 @@ function Hero() {
             <a className="ghost-link" href="#contact">
               发送邮件
             </a>
-            <a className="ghost-link resume-link" href="/assets/zjj-resume.pdf" target="_blank" rel="noreferrer">
+            <a className="ghost-link resume-link" href={assetUrl("/assets/zjj-resume.pdf")} target="_blank" rel="noreferrer">
               简历
               <ArrowUpRight size={16} />
             </a>
@@ -452,7 +459,7 @@ function Experience() {
           </div>
         </BorderGlow>
         <div className="poster-person">
-          <img src="/assets/zjj-crossed-cutout.webp" alt="张俊杰完整人物抠图" />
+          <img src={assetUrl("/assets/zjj-crossed-cutout.webp")} alt="张俊杰完整人物抠图" />
           <div className="poster-eye-label">AI + PRODUCT</div>
         </div>
         <BorderGlow
@@ -547,7 +554,7 @@ function Projects() {
                 onClick={() => setExpandedGalleryIndex(expandedGalleryIndex === index ? null : index)}
                 type="button"
               >
-                <img src={card.image} alt={card.title} />
+                <img src={assetUrl(card.image)} alt={card.title} />
               </button>
             ))}
             <a className="project-round-link" href="#project-miniapp">
@@ -563,7 +570,7 @@ function Projects() {
                   onClick={() => setExpandedGalleryIndex(expandedGalleryIndex === cardIndex ? null : cardIndex)}
                   type="button"
                 >
-                <img src={card.image} alt={card.title} />
+                <img src={assetUrl(card.image)} alt={card.title} />
                 </button>
               );
             })}
@@ -618,7 +625,7 @@ function Projects() {
             >
               <span>{card.label}</span>
               <strong>{card.title}</strong>
-              <img src={card.images[0]} alt={`${card.title} 预览`} />
+              <img src={assetUrl(card.images[0])} alt={`${card.title} 预览`} />
             </button>
           ))}
           <div className="crowd-center">
@@ -681,9 +688,9 @@ function Projects() {
                 type="button"
               >
                 {card.image.endsWith(".mp4") ? (
-                  <video autoPlay loop muted playsInline src={card.image} />
+                  <video autoPlay loop muted playsInline src={assetUrl(card.image)} />
                 ) : (
-                  <img src={card.image} alt={`${card.title} 预览`} />
+                  <img src={assetUrl(card.image)} alt={`${card.title} 预览`} />
                 )}
                 <span>{card.title}</span>
               </button>
