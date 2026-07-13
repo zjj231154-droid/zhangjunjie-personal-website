@@ -47,7 +47,7 @@ Invoke-Step "Build production bundle" {
 $changes = git status --porcelain
 if ($changes) {
   if ([string]::IsNullOrWhiteSpace($Message)) {
-    throw "Git changes exist. Re-run with: pnpm deploy:all -- -Message `"your commit message`""
+    throw "Git changes exist. Re-run with: pnpm deploy:all `"your commit message`""
   }
 
   Invoke-Step "Stage changes" {
