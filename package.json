@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "deploy:cloudflare": "pnpm build && pnpm dlx wrangler@latest pages deploy dist --project-name zhangjunjie-personal-website --commit-dirty=true",
+    "deploy:all": "powershell -ExecutionPolicy Bypass -File scripts/deploy-all.ps1"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
