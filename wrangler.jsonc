@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zhangjunjie-personal-website",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-08-20",
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS_DB",
+      "database_name": "mystery-analytics",
+      "database_id": "941d20f8-059a-4b57-81e8-f7f06e2fa3cb"
+    }
+  ]
+}

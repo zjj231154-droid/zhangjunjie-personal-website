@@ -1,4 +1,7 @@
 node_modules/
 dist/
+.wrangler/
+.mystery-standalone-tmp/
+publish-mystery*/
 .DS_Store
 *.local
