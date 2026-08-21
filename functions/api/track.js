@@ -5,6 +5,7 @@ const allowedTypes = new Set(["session_start", "heartbeat", "session_end", "erro
 const allowedOrigins = new Set([
   "https://swq8h3p431v.feishuapp.com",
   "https://zhangjunjie-personal-website.pages.dev",
+  "https://zjj231154-droid.github.io",
 ]);
 
 const cors = (request) => {
