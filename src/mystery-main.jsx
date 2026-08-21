@@ -42,6 +42,6 @@ createRoot(document.getElementById("mystery-root")).render(
   </React.StrictMode>,
 );
 
-if ("serviceWorker" in navigator && location.hostname.endsWith("pages.dev")) {
-  addEventListener("load", () => navigator.serviceWorker.register("/game-sw.js").catch(() => {}));
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  addEventListener("load", () => navigator.serviceWorker.register("./game-sw.js").catch(() => {}));
 }
